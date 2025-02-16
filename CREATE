@@ -7,3 +7,26 @@ CREATE TABLE Countries (
     Continent VARCHAR(50),       -- Continent where the country is located
     Currency VARCHAR(50)         -- Currency used in the country
 );
+
+CREATE TABLE unesco_sites (
+    UniqueNumber INT PRIMARY KEY,
+    NameEnglish VARCHAR(255),
+    DateInscribed YEAR,
+    Longitude DECIMAL(12,9),
+    Latitude DECIMAL(12,9),
+    AreaHectares DECIMAL(15,6),
+    Category VARCHAR(255),
+    CountryName VARCHAR(255),
+    Region VARCHAR(255)
+);
+
+CREATE TABLE countries_gdp (
+    id INT auto_increment NOT NULL PRIMARY KEY UNIQUE,
+    CountryName VARCHAR(255) UNIQUE,
+    CountryCode VARCHAR(3) UNIQUE,
+    GDP_USD_2022 DECIMAL(20, 4),
+    GDP_AnnualGrowth_USD_2022 DECIMAL(20, 8),
+    GDP_PerCapita_USD_2022 DECIMAL(20, 8),
+    GDP_PerCapita_PPP_USD_2022 DECIMAL(20, 8),
+    GDP_PPP_USD_2022 DECIMAL(20, 4)
+);
