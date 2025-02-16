@@ -30,3 +30,11 @@ CREATE TABLE countries_gdp (
     GDP_PerCapita_PPP_USD_2022 DECIMAL(20, 8),
     GDP_PPP_USD_2022 DECIMAL(20, 4)
 );
+
+CREATE TABLE countries_co2_emissions (
+    id INT auto_increment NOT NULL PRIMARY KEY UNIQUE,
+    Entity VARCHAR(255) UNIQUE,
+    CountryCode VARCHAR(3) UNIQUE,
+    Year_Of_Data YEAR,
+    emissions_total_per_capita DECIMAL(15, 6)
+);
