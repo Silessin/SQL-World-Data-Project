@@ -2,7 +2,7 @@ CREATE TABLE Countries (
     CountryID INT PRIMARY KEY AUTO_INCREMENT,
     CountryName VARCHAR(255),
     Capital VARCHAR(255),
-    Population DECIMAL(10, 2),  -- Population in millions
+    Population DECIMAL(10, 3),  -- Population in millions
     PhoneCode VARCHAR(10),       -- Phone code for the country
     Continent VARCHAR(50),       -- Continent where the country is located
     Currency VARCHAR(50)         -- Currency used in the country
