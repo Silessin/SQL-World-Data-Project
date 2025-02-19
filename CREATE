@@ -2,10 +2,10 @@ CREATE TABLE Countries (
     CountryID INT PRIMARY KEY AUTO_INCREMENT,
     CountryName VARCHAR(255),
     Capital VARCHAR(255),
-    Population DECIMAL(10, 3),  -- Population in millions
-    PhoneCode VARCHAR(10),       -- Phone code for the country
-    Continent VARCHAR(50),       -- Continent where the country is located
-    Currency VARCHAR(50)         -- Currency used in the country
+    Population DECIMAL(10, 3),
+    PhoneCode VARCHAR(10),
+    Continent VARCHAR(50),
+    Currency VARCHAR(50)
 );
 
 CREATE TABLE unesco_sites (
@@ -37,4 +37,12 @@ CREATE TABLE countries_co2_emissions (
     CountryCode VARCHAR(3) UNIQUE,
     Year_Of_Data YEAR,
     emissions_total_per_capita DECIMAL(15, 6)
+);
+
+CREATE TABLE countries_internet_users (
+    id INT auto_increment NOT NULL PRIMARY KEY UNIQUE,
+    Entity VARCHAR(255) UNIQUE,
+    CountryCode VARCHAR(8),
+    Year_Of_Data YEAR,
+    individuals_using_internet_percentage DECIMAL(9, 6)
 );
