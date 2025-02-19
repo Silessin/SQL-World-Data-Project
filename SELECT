@@ -1,0 +1,28 @@
+SELECT COUNT(*) AS total_countries FROM countries;
+SELECT CountryName, Currency FROM countries WHERE Currency LIKE '%Dollar%';
+
+SELECT Continent, SUM(Population) AS avg_population
+FROM countries
+GROUP BY Continent;
+
+SELECT c1.CountryName, c1.Continent, c1.Population
+FROM countries c1
+WHERE c1.Population = (
+    SELECT MAX(c2.Population)
+    FROM countries c2
+    WHERE c1.Continent = c2.Continent
+);
+
+WITH RankedCountries AS (
+    SELECT CountryName, Continent, Population,
+           RANK() OVER (PARTITION BY Continent ORDER BY Population DESC) AS ranking
+    FROM countries
+)
+SELECT CountryName, Continent, Population
+FROM RankedCountries
+WHERE ranking <= 3;
+
+SELECT CountryName, Continent, Population,
+       ROUND(100.0 * Population / SUM(Population) OVER (PARTITION BY Continent), 2) AS PercentageOfContinent
+FROM countries
+ORDER BY PercentageOfContinent DESC;
